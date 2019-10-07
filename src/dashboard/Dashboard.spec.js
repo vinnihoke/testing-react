@@ -20,24 +20,24 @@ describe("Dashboard Testing", () => {
 });
 
 describe("Async Controls Testing", () => {
-  test("Close toggles", async () => {
+  test("Close toggles", () => {
     const { getByText, queryByText } = render(<Dashboard />);
     expect(queryByText(/closed/i)).toBeNull();
-    await fireEvent.click(getByText(/close gate/i));
+    fireEvent.click(getByText(/close gate/i));
     expect(getByText(/closed/i));
   });
 
-  test("Close toggles", async () => {
+  test("Close toggles", () => {
     const { getByText, queryByText } = render(<Dashboard />);
     expect(queryByText(/open/i));
-    await fireEvent.click(getByText(/close gate/i));
+    fireEvent.click(getByText(/close gate/i));
     expect(getByText(/closed/i));
   });
 
-  test("Unlocked toggles", async () => {
+  test("Unlocked toggles", () => {
     const { getByText, queryByText } = render(<Dashboard />);
     expect(queryByText(/unlocked/i));
-    await fireEvent.click(getByText(/lock gate/i));
+    fireEvent.click(getByText(/lock gate/i));
     expect(getByText(/locked/i));
   });
 });
